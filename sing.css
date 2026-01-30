@@ -1,0 +1,661 @@
+:root {
+    --primary-color: #618685;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --text-color: #ffffff;
+    --text-muted: #e0e0e0;
+    --accent-color: #80d8ff;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Outfit', 'Segoe UI', sans-serif;
+    background-color: #0f172a;
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+}
+
+/* Background Blobs for Liquid Effect */
+.background-blobs {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+    animation: float 10s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+    top: -10%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: #4c1d95;
+    animation-delay: 0s;
+}
+
+.blob-2 {
+    bottom: -10%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: #0ea5e9;
+    animation-delay: -5s;
+}
+
+.blob-3 {
+    top: 40%;
+    left: 40%;
+    width: 400px;
+    height: 400px;
+    background: #db2777;
+    animation-duration: 15s;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate(30px, 50px) scale(1.1);
+    }
+}
+
+/* Main Glass Container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--glass-shadow);
+    padding: 40px;
+    max-width: 900px;
+    width: 90%;
+    margin: 40px 20px;
+}
+
+/* Typography */
+h1,
+h2 {
+    font-weight: 700;
+    color: #fff;
+    margin-top: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    background: linear-gradient(to right, #fff, #80d8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 10px;
+}
+
+p,
+li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+}
+
+strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Audio Player */
+.audio-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}
+
+audio {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 15px;
+    filter: invert(1) hue-rotate(180deg);
+    /* Simple trick to make default player look better on dark bg */
+}
+
+.controls button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid var(--glass-border);
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin: 0 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.controls button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-left: 4px solid var(--accent-color);
+    padding: 15px 20px;
+    border-radius: 0 12px 12px 0;
+    margin: 20px 0;
+}
+
+/* Table Styles - Glass Cards */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 15px;
+    /* Spacing between rows for card effect */
+}
+
+thead {
+    display: none;
+    /* Hidden by default for mobile-first approach, shown on desktop */
+}
+
+tr {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    display: block;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+tr:hover {
+    transform: scale(1.01);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+td {
+    display: block;
+    text-align: left;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+td:last-child {
+    border-bottom: none;
+}
+
+td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Desktop Table Styles */
+@media (min-width: 768px) {
+    thead {
+        display: table-header-group;
+    }
+
+    tr {
+        display: table-row;
+        background: rgba(255, 255, 255, 0.03);
+    }
+
+    th {
+        text-align: left;
+        padding: 20px;
+        color: var(--accent-color);
+        font-size: 1.1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-bottom: 2px solid var(--glass-border);
+    }
+
+    td {
+        display: table-cell;
+        padding: 20px;
+        border-bottom: none;
+        vertical-align: top;
+    }
+
+    td::before {
+        display: none;
+    }
+
+    /* Rounded corners for rows */
+    tr td:first-child {
+        border-top-left-radius: 16px;
+        border-bottom-left-radius: 16px;
+    }
+
+    tr td:last-child {
+        border-top-right-radius: 16px;
+        border-bottom-right-radius: 16px;
+    }
+}
+
+/* Tips Section */
+.tips {
+    margin-top: 40px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+}
+
+.tips ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tips li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.tips li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* Links */
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.video-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    border: 1px solid var(--glass-border);
+    font-weight: 600;
+}
+
+.video-link:hover {
+    background: var(--accent-color);
+    color: #000;
+    text-decoration: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .glass-container {
+        padding: 20px;
+        margin: 20px 10px;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+.infographic-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-container {
+    width: 100%;
+    height: min(80vh, 900px);
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.05);
+    display: block;
+}
+
+.pdf-embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* PDF carousel and list styles */
+.pdf-carousel {
+    width: 100%;
+    max-width: 960px;
+    margin: 24px auto 12px auto;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pdf-nav {
+    font-size: 28px;
+    padding: 8px 12px;
+    background: rgba(255,255,255,0.06);
+    color: var(--text-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.pdf-nav:hover { transform: translateY(-2px); }
+
+.carousel-view { flex: 1; display: flex; flex-direction: column; align-items: center; }
+
+/* YouTube Video Embed Styles */
+.video-section { margin-top: 28px; padding: 24px 0; }
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border);
+    margin-top: 16px;
+}
+
+.video-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+/* Mobile adjustments for video */
+@media (max-width: 600px) {
+    .video-container {
+        padding-bottom: 56.25%; /* Maintain 16:9 on mobile */
+    }
+}
+.carousel-title {
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-align: center;
+    font-size: 1.15rem;
+    letter-spacing: 0.2px;
+}
+.pdf-section { text-align: center; padding: 24px 0; }
+.carousel-embed { width: 100%; height: 420px; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+.pdf-list { display: flex; flex-direction: column; gap: 26px; margin-top: 20px; }
+.pdf-item { display: flex; flex-direction: column; gap: 8px; }
+.pdf-item-title { font-weight: 600; }
+.pdf-embed {
+        border-radius: 8px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        height: 100%;
+}
+
+@media (max-width: 800px) {
+    .carousel-embed { height: 300px; }
+    .pdf-container { height: min(60vh, 700px); }
+}
+
+.pdf-mobile-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .pdf-mobile-link {
+        display: none;
+        /* Hide button on desktop */
+    }
+}
+
+/* Hero and new PDF grid */
+.hero-section {
+    margin-bottom: 20px;
+    padding: 18px;
+}
+
+.hero-image {
+    width: 140px;
+    height: auto;
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.hero-desc {
+    margin: 0;
+    color: var(--text-muted);
+    max-width: 620px;
+}
+
+/* PDF grid & cards */
+.pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+    align-items: start;
+}
+
+.pdf-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pdf-card-head { padding-right: 6px; }
+
+.pdf-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 6px;
+}
+
+.pdf-description {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin: 0 0 6px 0;
+}
+
+/* Keep preview heights comfortable on small devices */
+.pdf-container { height: 320px; overflow: hidden; border-radius: 8px; }
+.pdf-embed { width: 100%; height: 100%; display:block; border: none; }
+
+/* Make embed slightly taller on desktop */
+@media (min-width: 992px) {
+    .pdf-container { height: 420px; }
+}
+
+/* Larger, more 'zoomed' previews for selected PDFs */
+.pdf-container.pdf-zoom { height: 900px; }
+@media (min-width: 992px) {
+    .pdf-container.pdf-zoom { height: 1400px; }
+}
+@media (min-width: 1400px) {
+    .pdf-container.pdf-zoom { height: 1700px; }
+}
+@media (max-width: 420px) {
+    .pdf-container.pdf-zoom { height: 320px; }
+}
+
+/* Full-size/view actions */
+.pdf-actions { margin-top: 8px; display:flex; gap:12px; align-items:center; }
+.pdf-fullview { display:none; color:var(--accent); text-decoration:underline; font-size:0.95rem; }
+@media (min-width: 768px) {
+    .pdf-fullview { display:inline-block; }
+    .pdf-mobile-link { display:none; }
+}
+
+/* Mobile tweaks (iPhone 13 mini ~ 375px wide) */
+@media (max-width: 420px) {
+    .hero-image { width: 120px; }
+    .pdf-container { height: 260px; }
+    .pdf-title { font-size: 0.95rem; }
+    .carousel-title { font-size: 1rem; margin-bottom: 8px; }
+    .glass-container { padding: 16px; margin: 16px 10px; }
+}
+
+/* Keep existing .pdf-mobile-link behavior */
+@media (min-width: 768px) {
+    .pdf-mobile-link { display: none; }
+}
+
+/* New Utilities */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.benefit-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    opacity: 0.8;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.benefit-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.scientific-explanation {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+.example-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    border-left: 3px solid var(--accent-color);
+}
+
+.video-fallback {
+    text-align: center;
+    padding: 12px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.video-fallback a {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.infographic-section {
+    margin: 20px 0;
+    text-align: center;
+    padding: 18px;
+}
+
+.infographic-section h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.infographic-image.full-width {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+    display: block;
+    margin: 0 auto;
+}
+
+@media (max-width: 420px) {
+    .infographic-section { padding: 12px; }
+    .infographic-image.full-width { border-radius: 8px; }
+}

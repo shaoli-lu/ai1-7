@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clawdbot</title>
+  <link rel="apple-touch-icon" sizes="205x154" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="sing.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="background-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="glass-container">
+    <!-- Hero with claudbot image -->
+    <section class="glass-card hero-section" aria-labelledby="claudbot-heading">
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <img src="clawdbot.png" alt="Claudbot mascot illustration" class="hero-image">
+        <div>
+          <h1 id="claudbot-heading">Meet Claudbot</h1>
+          <p class="hero-desc">Claudbot is the friendly mascot for our Clawdbot community — helping make sense of AI, tools, and how agents impact real work. Tap any PDF to preview or open it in a new tab.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- New full-size infographic -->
+    <section class="infographic-section glass-card" aria-labelledby="infographic-heading">
+      <h2 id="infographic-heading">Clawdbot Infographic</h2>
+      <figure class="infographic-figure">
+        <img src="clawdbot.png" alt="Full infographic showing Claudbot features and timeline" class="infographic-image full-width">
+      </figure>
+    </section>
+
+    <!-- First responsive PDF viewer -->
+    <section class="pdf-section">
+      <div id="pdfTitle" class="carousel-title">Moltbot — Power, Risk, and the Future of Work</div>
+      <div class="pdf-container">
+        <object id="pdfViewer" data="Moltbot_Power_Risk_And_The_Future_of_Work.pdf#page=1" type="application/pdf" class="pdf-embed">
+          <div class="pdf-fallback-content">
+            <p>PDF preview unavailable.</p>
+            <a id="pdfDownload" href="Moltbot_Power_Risk_And_The_Future_of_Work.pdf" class="video-link">Download the PDF</a>
+          </div>
+        </object>
+      </div>
+      <div class="pdf-actions">
+        <a class="pdf-fullview" href="Moltbot_Power_Risk_And_The_Future_of_Work.pdf#page=1" target="_blank" rel="noopener">View full-size (best quality)</a>
+        <a class="pdf-mobile-link video-link" id="pdfOpenLink" href="Moltbot_Power_Risk_And_The_Future_of_Work.pdf#page=1" target="_blank" rel="noopener">Open PDF</a>
+      </div>
+    </section>
+
+    <!-- Second responsive PDF viewer (below the first) -->
+    <section class="pdf-section">
+      <div id="pdfTitle2" class="carousel-title">The Mac Mini and the Lobster — Clawdbot Craze</div>
+      <div class="pdf-container">
+        <object id="pdfViewer2" data="The Mac Mini and the Lobster - A Simple Guide to the Clawdbot Craze.pdf#page=1" type="application/pdf" class="pdf-embed">
+          <div class="pdf-fallback-content">
+            <p>PDF preview unavailable.</p>
+            <a id="pdfDownload2" href="The Mac Mini and the Lobster - A Simple Guide to the Clawdbot Craze.pdf" class="video-link">Download the PDF</a>
+          </div>
+        </object>
+      </div>
+      <div class="pdf-actions">
+        <a class="pdf-fullview" href="The Mac Mini and the Lobster - A Simple Guide to the Clawdbot Craze.pdf#page=1" target="_blank" rel="noopener">View full-size (best quality)</a>
+        <a class="pdf-mobile-link video-link" id="pdfOpenLink2" href="The Mac Mini and the Lobster - A Simple Guide to the Clawdbot Craze.pdf#page=1" target="_blank" rel="noopener">Open PDF</a>
+      </div>
+    </section> 
+
+     <!-- Third responsive PDF viewer (below the first) -->
+    <section class="pdf-section">
+      <div id="pdfTitle3" class="carousel-title">What Is Clawdbot — Introduction to the Viral AI Agent</div>
+      <div class="pdf-container">
+        <object id="pdfViewer3" data="What Is Clawdbot - An Introduction to the Viral AI Agent.pdf#page=1" type="application/pdf" class="pdf-embed">
+          <div class="pdf-fallback-content">
+            <p>PDF preview unavailable.</p>
+            <a id="pdfDownload3" href="What Is Clawdbot - An Introduction to the Viral AI Agent.pdf" class="video-link">Download the PDF</a>
+          </div>
+        </object>
+      </div>
+      <div class="pdf-actions">
+        <a class="pdf-fullview" href="What Is Clawdbot - An Introduction to the Viral AI Agent.pdf#page=1" target="_blank" rel="noopener">View full-size (best quality)</a>
+        <a class="pdf-mobile-link video-link" id="pdfOpenLink3" href="What Is Clawdbot - An Introduction to the Viral AI Agent.pdf#page=1" target="_blank" rel="noopener">Open PDF</a>
+      </div>
+    </section>   
+
+
+
+    <!-- YouTube Video Embed -->
+    <section class="video-section">
+      <div class="carousel-title">Featured Video</div>
+      <div class="video-container">
+         <iframe class="video-embed" src="https://www.youtube-nocookie.com/embed/ZAOK8gWHkEk?si=A1IT6RW4hRZTTptL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="video-fallback">
+        <p>If the video doesn't play, <a href="https://youtu.be/ZAOK8gWHkEk" target="_blank" rel="noopener">watch it on YouTube</a>.</p>
+      </div>
+    </section>
+
+
+
+  
+  
+    
+  </main>
+
+
+ 
+  <script src="pdf-controls.js"></script>
+</body>
+
+</html>
